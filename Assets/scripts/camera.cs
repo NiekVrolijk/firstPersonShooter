@@ -40,6 +40,13 @@ public class camera : MonoBehaviour
                transform.forward * moveZ;
 
         characterController.Move(move);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            currentSpeed = runningSpeed;
+        } else
+        {
+            currentSpeed = walkingSpeed;
+        }
         //if (Input.GetKey(KeyCode.W) /*&& transform.position.y < maxYValue*/)
         //{
 
