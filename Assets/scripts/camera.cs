@@ -13,6 +13,9 @@ public class camera : MonoBehaviour
     public float walkingSpeed = 5;
     public float runningSpeed = 10;
 
+    private float moveX;
+    private float moveZ;
+
 
 
     public CharacterController characterController;
@@ -20,13 +23,14 @@ public class camera : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentSpeed = walkingSpeed;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        moveX = Input.GetAxis("horizontal") * currentSpeed * Time.deltaTime;
+        moveZ = Input.GetAxis("vertical") * currentSpeed * Time.deltaTime;
 
         //if (Input.GetKey(KeyCode.W) /*&& transform.position.y < maxYValue*/)
         //{
