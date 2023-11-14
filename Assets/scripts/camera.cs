@@ -10,11 +10,14 @@ public class camera : MonoBehaviour
     //float maxYValue = 4.7f;
     [SerializeField]
     private float currentSpeed;
-    public float walkingSpeed = 5;
-    public float runningSpeed = 10;
+    public float walkingSpeed = 5f;
+    public float runningSpeed = 10f;
+
+    public float gravity = -0.5f;
 
     private float moveX;
     private float moveZ;
+    private Vector3 move;
 
 
 
@@ -29,9 +32,14 @@ public class camera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveX = Input.GetAxis("horizontal") * currentSpeed * Time.deltaTime;
-        moveZ = Input.GetAxis("vertical") * currentSpeed * Time.deltaTime;
+        moveX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
+        moveZ = Input.GetAxis("Vertical") * currentSpeed * Time.deltaTime;
 
+        move = transform.right * moveX + 
+               transform.up * gravity +
+               transform.forward * moveZ;
+
+        characterController.Move(move);
         //if (Input.GetKey(KeyCode.W) /*&& transform.position.y < maxYValue*/)
         //{
 
