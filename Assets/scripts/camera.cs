@@ -14,6 +14,8 @@ public class camera : MonoBehaviour
     public float runningSpeed = 10f;
 
     public float gravity = -0.5f;
+    public float jumpSpeed = 0.8f;
+    private float baseLineGravity;
 
     private float moveX;
     private float moveZ;
@@ -22,16 +24,20 @@ public class camera : MonoBehaviour
 
 
     public CharacterController characterController;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSpeed = walkingSpeed;
+        rb = GetComponent<Rigidbody>();
+        baseLineGravity = gravity;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(characterController.isGrounded);
         moveX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
         moveZ = Input.GetAxis("Vertical") * currentSpeed * Time.deltaTime;
 
@@ -47,23 +53,11 @@ public class camera : MonoBehaviour
         {
             currentSpeed = walkingSpeed;
         }
-        //if (Input.GetKey(KeyCode.W) /*&& transform.position.y < maxYValue*/)
-        //{
 
-        //    transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.S) /*&& transform.position.y > -maxYValue*/)
-        //{
 
-        //    transform.Translate(Vector3.back * speed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.D) /*&& transform.position.x < maxXValue*/)
-        //{
-        //    transform.Translate(Vector3.right * speed * Time.deltaTime);
-        //}
-        //if (Input.GetKey(KeyCode.A) /*&& transform.position.x > -maxXValue*/)
-        //{
-        //    transform.Translate(Vector3.left * speed * Time.deltaTime);
-        //}
+        if (characterController.isGrounded && Input.GetButtonDown("jump"))
+        {
+            rb.AddForce(Vector3.up * 50, ForceMode.Impulse);
+        }
     }
 }
