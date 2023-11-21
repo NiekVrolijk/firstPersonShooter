@@ -14,17 +14,17 @@ public class camera : MonoBehaviour
     public float runningSpeed = 10f;
 
     public float gravity = -0.5f;
-    public float jumpSpeed = 0.8f;
     private float baseLineGravity;
+    public float jumpSpeed = 0.8f;
 
     private float moveX;
     private float moveZ;
     private Vector3 move;
 
-
-
     public CharacterController characterController;
     private Rigidbody rb;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,9 +55,15 @@ public class camera : MonoBehaviour
         }
 
 
-        if (characterController.isGrounded && Input.GetButtonDown("jump"))
+        if (characterController.isGrounded /*&& Input.GetButtonDown("jump")*/ && Input.GetKey(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * 50, ForceMode.Impulse);
+            gravity = baseLineGravity;
+            gravity *= -jumpSpeed;
+        }
+
+        if (gravity > baseLineGravity)
+        {
+            gravity -= 2 * Time.deltaTime;
         }
     }
 }
