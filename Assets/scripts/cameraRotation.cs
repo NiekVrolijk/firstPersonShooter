@@ -18,6 +18,7 @@ public class cameraRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //makes camera follow mouse
        xMouse = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
        yMouse = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
        xRotation -= yMouse;

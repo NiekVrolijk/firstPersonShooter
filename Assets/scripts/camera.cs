@@ -13,7 +13,7 @@ public class camera : MonoBehaviour
     public float walkingSpeed = 5f;
     public float runningSpeed = 10f;
 
-    public float gravity = -0.5f;
+    public float gravity = -0.3f;
     private float baseLineGravity;
     public float jumpSpeed = 0.8f;
 
@@ -22,29 +22,30 @@ public class camera : MonoBehaviour
     private Vector3 move;
 
     public CharacterController characterController;
-    private Rigidbody rb;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        //makes default speed walking speed and baselinegravity = to gravity
         currentSpeed = walkingSpeed;
-        rb = GetComponent<Rigidbody>();
         baseLineGravity = gravity;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(characterController.isGrounded);
+        //movement 
+        //Debug.Log(characterController.isGrounded);
         moveX = Input.GetAxis("Horizontal") * currentSpeed * Time.deltaTime;
         moveZ = Input.GetAxis("Vertical") * currentSpeed * Time.deltaTime;
-
+    //gravity
         move = transform.right * moveX + 
                transform.up * gravity +
                transform.forward * moveZ;
 
+        //run
         characterController.Move(move);
         if (Input.GetKey(KeyCode.LeftShift))
         {
@@ -54,8 +55,8 @@ public class camera : MonoBehaviour
             currentSpeed = walkingSpeed;
         }
 
-
-        if (characterController.isGrounded /*&& Input.GetButtonDown("jump")*/ && Input.GetKey(KeyCode.Space))
+        //jump
+        if (characterController.isGrounded && Input.GetKey(KeyCode.Space))
         {
             gravity = baseLineGravity;
             gravity *= -jumpSpeed;
