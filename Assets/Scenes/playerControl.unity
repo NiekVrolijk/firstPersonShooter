@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 578265}
   - component: {fileID: 578263}
   - component: {fileID: 578264}
+  - component: {fileID: 578266}
   m_Layer: 0
   m_Name: emeny
   m_TagString: NPC
@@ -269,6 +270,22 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &578266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55c961581b47614285a8a4b15b020ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2090063475}
+  attackRange: 10
+  defaultMaterial: {fileID: 2100000, guid: 694636c6270f72143ba439bcc4a49884, type: 2}
+  attackMaterial: {fileID: 2100000, guid: b7cf8daa161e6284dbd1367452aa765e, type: 2}
 --- !u!1 &245035619
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,6 +604,7 @@ GameObject:
   - component: {fileID: 881047785}
   - component: {fileID: 881047784}
   - component: {fileID: 881047783}
+  - component: {fileID: 881047788}
   m_Layer: 0
   m_Name: emeny3
   m_TagString: NPC
@@ -719,6 +737,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881047781}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &881047788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881047781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55c961581b47614285a8a4b15b020ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2090063475}
+  attackRange: 10
+  defaultMaterial: {fileID: 2100000, guid: 694636c6270f72143ba439bcc4a49884, type: 2}
+  attackMaterial: {fileID: 2100000, guid: b7cf8daa161e6284dbd1367452aa765e, type: 2}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,7 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2090063475}
-  speed: 1500
+  speed: 1000
 --- !u!1 &1134279005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1086,7 @@ GameObject:
   - component: {fileID: 1289434894}
   - component: {fileID: 1289434893}
   - component: {fileID: 1289434892}
+  - component: {fileID: 1289434897}
   m_Layer: 0
   m_Name: emeny2
   m_TagString: NPC
@@ -1184,6 +1219,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289434890}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1289434897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1289434890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e55c961581b47614285a8a4b15b020ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2090063475}
+  attackRange: 10
+  defaultMaterial: {fileID: 2100000, guid: 694636c6270f72143ba439bcc4a49884, type: 2}
+  attackMaterial: {fileID: 2100000, guid: b7cf8daa161e6284dbd1367452aa765e, type: 2}
 --- !u!1 &1512227867
 GameObject:
   m_ObjectHideFlags: 0

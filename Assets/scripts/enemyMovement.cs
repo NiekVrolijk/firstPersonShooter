@@ -37,7 +37,7 @@ public class enemyMovement : MonoBehaviour
         }
     }
 
-    private void RandomMove()
+    public void RandomMove()
     {
         xPosition = Random.Range(xMin, xMax);
         zPosition = Random.Range(zMin, zMax);
