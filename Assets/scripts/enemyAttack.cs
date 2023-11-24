@@ -5,7 +5,7 @@ using UnityEngine;
 public class enemyAttack : MonoBehaviour
 {
     private enemyMovement EnemyMovement;
-    public Transform player;
+    private Transform player;
     public float attackRange = 10f;
 
     public Material defaultMaterial;
@@ -16,6 +16,7 @@ public class enemyAttack : MonoBehaviour
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("player1").transform;
         EnemyMovement = GetComponent<enemyMovement>();
         rend = GetComponent<Renderer>();
     }
