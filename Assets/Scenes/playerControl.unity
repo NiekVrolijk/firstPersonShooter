@@ -538,7 +538,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2090063475}
-  speed: 1000
+  speed: 500
+  cam: {fileID: 963194227}
+  defaultFov: 90
 --- !u!1 &1134279005
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,7 +788,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_SizeDelta: {x: 5, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1512227869
 MonoBehaviour:
@@ -1143,10 +1145,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
-  walkingSpeed: 5
-  runningSpeed: 10
-  gravity: -0.3
-  jumpSpeed: 0.8
+  walkingSpeed: 3
+  runningSpeed: 5
+  AirWSpeed: 2
+  AirRSpeed: 3
+  gravity: -30
+  jumpHeight: 3
   characterController: {fileID: 2090063476}
 --- !u!114 &2090063478
 MonoBehaviour:

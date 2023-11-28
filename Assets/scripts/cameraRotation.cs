@@ -8,7 +8,10 @@ public class cameraRotation : MonoBehaviour
     private float xMouse;
     private float yMouse;
     private float xRotation;
-    public float speed = 1000f;
+    public float speed = 500f;
+
+    public Camera cam;
+    public float defaultFov = 90;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,5 +28,17 @@ public class cameraRotation : MonoBehaviour
        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
        player.Rotate(Vector3.up * xMouse);
+
+        if (!Input.GetMouseButtonDown(1))
+        {
+           speed = 500f;
+           cam.fieldOfView = (defaultFov);
+        }
+        if (Input.GetMouseButton(1))
+        {
+            speed = 300f;
+            cam.fieldOfView = (defaultFov * 0.60f);
+        }
+
     }
 }
