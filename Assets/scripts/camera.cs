@@ -8,16 +8,24 @@ public class camera : MonoBehaviour
 {
     //var
 
-
+    // x and z speed
     [SerializeField] private float currentSpeed;
     [SerializeField] public float walkingSpeed = 3f;
     [SerializeField] public float runningSpeed = 5f;
     [SerializeField] public float AirWSpeed = 2.1f;
     [SerializeField] public float AirRSpeed = 3.5f;
-
+    
+    //jump (y speed)
     public float gravity = -30f;
     private float baseLineGravity;
     public float jumpHeight = 3f;
+
+    //double jump
+    private int doubleJump;
+    private int doubleJumpAmount = 2;
+    private float jumpTimer;
+    private float canJump = 0.5f;
+
 
     private Vector3 moveDirection;
     private Vector3 moveDirection2;
@@ -46,6 +54,13 @@ public class camera : MonoBehaviour
     void Update()
     {
         Move();
+        //reset doublejump
+        if (characterController.isGrounded)
+        {
+            doubleJump = doubleJumpAmount;
+        }
+        //run double jump timer
+        jumpTimer += Time.deltaTime;
     }
 
     private void Move()
@@ -74,21 +89,25 @@ public class camera : MonoBehaviour
             Run();
         }
 
-        if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift) && !characterController.isGrounded) //walk while jumping
+        if (moveDirection != Vector3.zero && !Input.GetKey(KeyCode.LeftShift) && !characterController.isGrounded) //walk while in air
         {
             AirWalk();
         }
-        else if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift) && !characterController.isGrounded) //run while jumping
+        else if (moveDirection != Vector3.zero && Input.GetKey(KeyCode.LeftShift) && !characterController.isGrounded) //run while in air
         {
             AirRun();
         }
 
+        if (Input.GetKey(KeyCode.Space) && doubleJump > 0 && canJump <= jumpTimer) // jump
+        {
+            jump();
+            //double jump
+            doubleJump -= 1;
+            jumpTimer = 0f;
+        }
+
         if (characterController.isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space)) // jump
-            {
-                jump();
-            }
             if (moveDirection != Vector3.zero)// idle
             {
                 idle();
