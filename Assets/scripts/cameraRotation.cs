@@ -11,11 +11,14 @@ public class cameraRotation : MonoBehaviour
     public float speed = 500f;
 //aiming
     public Camera cam;
+    public float zoomMultiplier = 1.666667f;
     public float defaultFov = 90;
+    public float zoomDuration = 0.1f;
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        zoomMultiplier = 1f / 0.6f;
     }
 
     // Update is called once per frame
@@ -29,16 +32,22 @@ public class cameraRotation : MonoBehaviour
        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
        player.Rotate(Vector3.up * xMouse);
 
-        if (!Input.GetMouseButton(1))
-        {
-           speed = 500f;
-           cam.fieldOfView = (defaultFov);
-        }
+        //zoom in
         if (Input.GetMouseButton(1))
         {
+            ZoomCamera(defaultFov / zoomMultiplier);
             speed = 300f;
-            cam.fieldOfView = (defaultFov * 0.60f);
+        }
+        else if (cam.fieldOfView != defaultFov)
+        {
+            ZoomCamera(defaultFov);
+            speed = 500f;
         }
 
+    }
+    void ZoomCamera(float target)
+    {
+        float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
+        cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle / zoomDuration * Time.deltaTime);
     }
 }

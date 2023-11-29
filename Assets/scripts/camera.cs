@@ -22,9 +22,9 @@ public class camera : MonoBehaviour
 
     //double jump
     private int doubleJump;
-    private int doubleJumpAmount = 2;
+    private int doubleJumpAmount = 1;
     private float jumpTimer;
-    private float canJump = 0.5f;
+    private float canJump = 0.4f;
 
 
     private Vector3 moveDirection;
@@ -98,7 +98,7 @@ public class camera : MonoBehaviour
             AirRun();
         }
 
-        if (Input.GetKey(KeyCode.Space) && doubleJump > 0 && canJump <= jumpTimer) // jump
+        if (Input.GetKey(KeyCode.Space) && doubleJump > 0 && canJump <= jumpTimer && !characterController.isGrounded) // jump
         {
             jump();
             //double jump
@@ -108,6 +108,12 @@ public class camera : MonoBehaviour
 
         if (characterController.isGrounded)
         {
+            if (Input.GetKey(KeyCode.Space) && canJump <= jumpTimer) // jump
+            {
+                jump();
+                jumpTimer = 0f;
+            }
+
             if (moveDirection != Vector3.zero)// idle
             {
                 idle();
