@@ -6,6 +6,7 @@ TagManager:
   tags:
   - NPC
   - player1
+  - wallJumpObstacle
   layers:
   - Default
   - TransparentFX

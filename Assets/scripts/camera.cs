@@ -26,6 +26,9 @@ public class camera : MonoBehaviour
     private float jumpTimer;
     private float canJump = 0.4f;
 
+    //wall jump
+    public bool isGrounded;
+
 
     private Vector3 moveDirection;
     private Vector3 moveDirection2;
@@ -61,6 +64,13 @@ public class camera : MonoBehaviour
         }
         //run double jump timer
         jumpTimer += Time.deltaTime;
+        if (characterController.isGrounded)
+        {
+            isGrounded = true;
+        } else if (!characterController.isGrounded)
+        {
+            isGrounded = false;
+        }
     }
 
     private void Move()
@@ -142,7 +152,7 @@ public class camera : MonoBehaviour
         moveDirection *= AirRSpeed;
     }
 
-    private void jump()
+    public void jump()
     {
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
     }

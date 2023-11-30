@@ -247,7 +247,7 @@ GameObject:
   - component: {fileID: 522328843}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: wallJumpObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -538,7 +538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2090063475}
-  speed: 500
+  speed: 700
   cam: {fileID: 963194227}
   zoomMultiplier: 1.666667
   defaultFov: 90
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 1134279006}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: wallJumpObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,6 +660,7 @@ GameObject:
   - component: {fileID: 1236692186}
   - component: {fileID: 1236692185}
   - component: {fileID: 1236692184}
+  - component: {fileID: 1236692187}
   m_Layer: 3
   m_Name: playerModel
   m_TagString: Untagged
@@ -755,6 +756,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1236692182}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1236692187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236692182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f19bfff62da1c44a186ed97da60a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1512227867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,6 +1166,7 @@ MonoBehaviour:
   AirRSpeed: 3
   gravity: -30
   jumpHeight: 3
+  isGrounded: 0
   characterController: {fileID: 2090063476}
 --- !u!114 &2090063478
 MonoBehaviour:

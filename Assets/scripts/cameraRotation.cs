@@ -8,7 +8,7 @@ public class cameraRotation : MonoBehaviour
     private float xMouse;
     private float yMouse;
     private float xRotation;
-    public float speed = 500f;
+    public float speed = 700f;
 //aiming
     public Camera cam;
     public float zoomMultiplier = 1.666667f;
@@ -36,12 +36,12 @@ public class cameraRotation : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             ZoomCamera(defaultFov / zoomMultiplier);
-            speed = 300f;
+            speed = 400f;
         }
         else if (cam.fieldOfView != defaultFov)
         {
             ZoomCamera(defaultFov);
-            speed = 500f;
+            speed = 700f;
         }
 
     }
