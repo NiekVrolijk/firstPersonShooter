@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class cameraRotation : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class cameraRotation : MonoBehaviour
     public float zoomDuration = 0.1f;
     //recoil
     public float recoil;
-    public float recoilSpeed = 0.1f;
+    public float recoilSpeed = 0f;
     public Quaternion rotation1;
     public Quaternion rotation2;
     // Start is called before the first frame update
@@ -57,10 +58,11 @@ public class cameraRotation : MonoBehaviour
     }
     private void RecoilCamera()
     {
-        recoil = Random.Range(-1, -5); 
-        rotation1 = Quaternion.Euler(xRotation, 0f, 0f);
-        rotation2 = Quaternion.Euler(xRotation + recoil, 0f, 0f);
-        transform.localRotation = Quaternion.Slerp(rotation1, rotation2, recoilSpeed * Time.deltaTime);
+        recoil = Random.Range(-1, -5);
+        //rotation1 = Quaternion.Euler(xRotation, 0f, 0f);
+        //rotation2 = Quaternion.Euler(xRotation + recoil, 0f, 0f);
+        //transform.localRotation = Quaternion.Slerp(rotation1, rotation2, recoilSpeed * Time.deltaTime);
+        xRotation = Mathf.MoveTowards(xRotation, xRotation + recoil, recoilSpeed * Time.deltaTime);
     }
     void ZoomCamera(float target)
     {
