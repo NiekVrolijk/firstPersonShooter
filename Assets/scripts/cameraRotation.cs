@@ -14,6 +14,11 @@ public class cameraRotation : MonoBehaviour
     public float zoomMultiplier = 1.666667f;
     public float defaultFov = 90;
     public float zoomDuration = 0.1f;
+    //recoil
+    public float recoil;
+    public float recoilSpeed = 0.1f;
+    public Quaternion rotation1;
+    public Quaternion rotation2;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +29,14 @@ public class cameraRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //makes camera follow mouse
-       xMouse = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
-       yMouse = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
-       xRotation -= yMouse;
-       xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-       transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-       player.Rotate(Vector3.up * xMouse);
+        xMouse = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
+        yMouse = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
+        xRotation -= yMouse;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        player.Rotate(Vector3.up * xMouse);
 
         //zoom in
         if (Input.GetMouseButton(1))
@@ -43,7 +49,18 @@ public class cameraRotation : MonoBehaviour
             ZoomCamera(defaultFov);
             speed = 700f;
         }
-
+       
+        if (Input.GetMouseButtonDown(0))
+        {
+            RecoilCamera();
+        }
+    }
+    private void RecoilCamera()
+    {
+        recoil = Random.Range(-1, -5); 
+        rotation1 = Quaternion.Euler(xRotation, 0f, 0f);
+        rotation2 = Quaternion.Euler(xRotation + recoil, 0f, 0f);
+        transform.localRotation = Quaternion.Slerp(rotation1, rotation2, recoilSpeed * Time.deltaTime);
     }
     void ZoomCamera(float target)
     {

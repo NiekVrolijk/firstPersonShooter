@@ -159,6 +159,16 @@ public class camera : MonoBehaviour
     private void idle()
     {
 
+
     }
-}
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        
+        if (hit.gameObject.tag == "wallJumpObstacle" && !characterController.isGrounded)
+        {
+            doubleJump = doubleJumpAmount;
+        }
+        
+    }
+    }
 

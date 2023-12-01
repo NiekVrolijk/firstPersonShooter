@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
 
 //public class collisionScript : MonoBehaviour
 //{
@@ -16,13 +16,14 @@ using UnityEngine;
 //    // Update is called once per frame
 //    void Update()
 //    {
-        
+
 //    }
 //    private void OnCollisionEnter(Collision collision)
 //    {
+//        Debug.Log("collision");
 //        if (collision.gameObject.CompareTag("wallJumpObstacle") /*&& !cameraScript.isGrounded*/)
 //        {
-//            jump();
+//            cameraScript.jump();
 //            Debug.Log("ahhh");
 //        }
 //    }

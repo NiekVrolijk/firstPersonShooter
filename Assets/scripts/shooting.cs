@@ -28,6 +28,7 @@ public class shooting : MonoBehaviour
                 {
                     Destroy(hit.collider.gameObject);
                 }
+
             }
         }
     }
