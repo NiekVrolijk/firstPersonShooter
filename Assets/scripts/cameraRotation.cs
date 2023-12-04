@@ -75,9 +75,9 @@ public class cameraRotation : MonoBehaviour
     }
     void ZoomCamera(float target, float LTarget)
     {
-        //float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
-        //cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle / zoomDuration * Time.deltaTime);
-        //gunXPosition = Mathf.MoveTowards(gunXPosition, LTarget, angle / zoomDuration * Time.deltaTime);
+        float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
+        cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle / zoomDuration * Time.deltaTime);
+        gunXPosition = Mathf.MoveTowards(gunXPosition, LTarget, angle / zoomDuration * Time.deltaTime);
 
         //float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
 
@@ -89,9 +89,9 @@ public class cameraRotation : MonoBehaviour
 
         //// Smoothly interpolate a separate variable for gun position based on the percentage of completion
         //float smoothGunXPosition = Mathf.Lerp(gunXPosition, LTarget, t);
-        
+
         //gun.transform.localPosition = new Vector3(smoothGunXPosition, -0.374f, -0.031f);
-        
-       
+
+
     }
 }
