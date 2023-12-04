@@ -47,13 +47,13 @@ public class cameraRotation : MonoBehaviour
         if (Input.GetMouseButton(1))
         {
             ZoomCamera(defaultFov / zoomMultiplier, -0.38f);
-            speed = 400f;
+            speed = 400f; //was 40
             //gunXPosition = -0.38f;
         }
         else if (cam.fieldOfView != defaultFov)
         {
             ZoomCamera(defaultFov, 0.221f);
-            speed = 700f;
+            speed = 700f; //was 70
             //gunXPosition = 0.221f;
         }
        
