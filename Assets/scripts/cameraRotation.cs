@@ -21,6 +21,7 @@ public class cameraRotation : MonoBehaviour
     public float recoilSpeed = 0.1f;
     public Quaternion rotation1;
     public Quaternion rotation2;
+    bool isRecoiling = false;
 
     // Start is called before the first frame update
     void Start()
@@ -53,18 +54,21 @@ public class cameraRotation : MonoBehaviour
             speed = 700f;
         }
        
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             RecoilCamera();
+            
         }
     }
     private void RecoilCamera()
     {
-        recoil = Random.Range(-1, -5);
+        
+        recoil = Random.Range(-5, -1);
         rotation1 = Quaternion.Euler(xRotation, 0f, 0f);
         rotation2 = Quaternion.Euler(xRotation + recoil, 0f, 0f);
         transform.localRotation = Quaternion.Slerp(rotation1, rotation2, recoilSpeed * Time.deltaTime);
-        xRotation = Mathf.MoveTowards(xRotation, xRotation + recoil, recoilSpeed * Time.deltaTime);
+        //Debug.Log(rotation1 + " " + rotation2 + " " + recoilSpeed);
+        //xRotation = Mathf.MoveTowards(xRotation, xRotation + recoil, recoilSpeed * Time.deltaTime);
     }
     void ZoomCamera(float target)
     {

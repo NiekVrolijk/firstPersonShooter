@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using UnityEditor.Profiling.Memory.Experimental;
 using UnityEngine;
 
 public class shooting : MonoBehaviour
@@ -9,6 +11,9 @@ public class shooting : MonoBehaviour
 
     private Ray ray;
     private RaycastHit hit;
+
+    private float shootTimer;
+    private float canShoot = 0.2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +23,9 @@ public class shooting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        shootTimer += Time.deltaTime;
+
+        if(Input.GetMouseButton(0) && canShoot <= shootTimer)
         {
             Debug.Log("shoot");
             ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -30,6 +37,7 @@ public class shooting : MonoBehaviour
                 }
 
             }
+            shootTimer = 0f;
         }
     }
 }
