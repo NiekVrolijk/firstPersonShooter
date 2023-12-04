@@ -363,7 +363,7 @@ Transform:
   m_GameObject: {fileID: 350332344}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.11, y: -0.304, z: 0.336}
+  m_LocalPosition: {x: 0.221, y: -0.374, z: -0.031}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -892,9 +892,8 @@ MonoBehaviour:
   player: {fileID: 2090063475}
   speed: 700
   cam: {fileID: 963194227}
-  zoomMultiplier: 1.666667
-  defaultFov: 90
-  zoomDuration: 0.1
+  gun: {fileID: 350332344}
+  gunXPosition: 0
   recoil: 0
   recoilSpeed: 0.1
   rotation1: {x: 0, y: 0, z: 0, w: 0}
@@ -1481,13 +1480,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858951050}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6310018, y: -0, z: -0, w: 0.7757814}
-  m_LocalPosition: {x: 0.371, y: -0.051, z: 0.575}
+  m_LocalRotation: {x: 0.55979633, y: -0, z: -0, w: 0.82863027}
+  m_LocalPosition: {x: 0.371, y: -0.05099994, z: 0.57500017}
   m_LocalScale: {x: 0.12, y: 0.15, z: 0.35}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 350332345}
-  m_LocalEulerAnglesHint: {x: 78.248, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.083, y: 0, z: 0}
 --- !u!65 &1858951052
 BoxCollider:
   m_ObjectHideFlags: 0
