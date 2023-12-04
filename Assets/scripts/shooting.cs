@@ -16,11 +16,11 @@ public class shooting : MonoBehaviour
     private float canShoot = 0.2f;
 
     public GameObject muzzleFlash;
-    private float muzzleFlashX;
-    private float muzzleFlashY;
-    private float muzzleFlashZ;
-    private float flashTime = 1f;
-    private float flashTimer;
+    //private float muzzleFlashX;
+    //private float muzzleFlashY;
+    //private float muzzleFlashZ;
+    //private float flashTime = 1f;
+    //private float flashTimer;
     // Start is called before the first frame update
     void Start()
     {
