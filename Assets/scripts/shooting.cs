@@ -16,35 +16,31 @@ public class shooting : MonoBehaviour
     private float canShoot = 0.2f;
 
     public GameObject muzzleFlash;
-    //private float muzzleFlashX;
-    //private float muzzleFlashY;
-    //private float muzzleFlashZ;
-    //private float flashTime = 1f;
-    //private float flashTimer;
-    // Start is called before the first frame update
+    private float muzzleFlashX;
+    private float muzzleFlashY;
+    private float muzzleFlashZ;
+    private float flashDuration = 0.1f;
+    //Start is called before the first frame update
     void Start()
     {
-        
+        muzzleFlash.transform.localScale = new Vector3(muzzleFlashX, muzzleFlashY, muzzleFlashZ);
+        muzzleFlashX = 0f; muzzleFlashY = 0f; muzzleFlashZ = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         shootTimer += Time.deltaTime;
-
-        //flashTimer += Time.deltaTime;
-        //muzzleFlash.transform.localScale = new Vector3(muzzleFlashX, muzzleFlashY, muzzleFlashZ);
-
-        //if (flashTime >= flashTimer)
-        //{
-        //    muzzleFlashX = 0f; muzzleFlashY = 0f; muzzleFlashZ = 0f;
-        //}
+        if (flashDuration <= shootTimer) 
+        {
+            muzzleFlashX = 0f; muzzleFlashY = 0f; muzzleFlashZ = 0f;
+            muzzleFlash.transform.localScale = new Vector3(muzzleFlashX, muzzleFlashY, muzzleFlashZ);
+        }
 
         if(Input.GetMouseButton(0) && canShoot <= shootTimer)
         {
-            //flashTimer = 0f;
-            //muzzleFlashX = 0.1f; muzzleFlashY = 0.05f; muzzleFlashZ = 0.1f;
-
+            muzzleFlashX = 0.1f; muzzleFlashY = 0.05f; muzzleFlashZ = 0.1f;
+            muzzleFlash.transform.localScale = new Vector3(muzzleFlashX, muzzleFlashY, muzzleFlashZ);
             ray = cam.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray, out hit))
             {
@@ -54,7 +50,7 @@ public class shooting : MonoBehaviour
                 }
 
             }
-            //muzzleFlash.transform.localScale = new Vector3(muzzleFlashX, muzzleFlashY, muzzleFlashZ);
+            
             shootTimer = 0f;
         }
 

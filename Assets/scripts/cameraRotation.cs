@@ -7,7 +7,7 @@ public class cameraRotation : MonoBehaviour
 {
     public Transform player;
     private float xMouse;
-    private float yMouse;
+    public float yMouse;
     private float xRotation;
     public float speed = 700f;
     //aiming
@@ -17,12 +17,25 @@ public class cameraRotation : MonoBehaviour
     private float zoomDuration = 0.1f;
     //gun aiming
     public GameObject gun;
-    public float gunXPosition;
+    private float gunXPosition;
     //recoil
-    public float recoil;
-    public float recoilSpeed = 0.1f;
-    public Quaternion rotation1;
-    public Quaternion rotation2;
+    //public float recoil;
+    //private float recoilSpeed = 0.8f;
+    //private Quaternion rotation1;
+    //private Quaternion rotation2;
+    //private bool recoilCheck;
+    //private float shootTimer;
+    //private float canShoot = 0.2f;
+
+    ////private Vector3 currentRotation;
+    ////private Vector3 targetRotation;
+
+    ////[SerializeField] private float recoilX;
+    ////[SerializeField] private float recoilY;
+    ////[SerializeField] private float recoilZ;
+
+    ////[SerializeField] private float snappiness;
+    ////[SerializeField] private float returnSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +47,15 @@ public class cameraRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ////targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeed * Time.deltaTime);
+        ////currentRotation = Vector3.Slerp(currentRotation, targetRotation, snappiness * Time.deltaTime);
+        ////transform.localRotation = Quaternion.Euler(currentRotation);
+
+
+        //shootTimer += Time.deltaTime;
         gun.transform.localPosition = new Vector3(gunXPosition, -0.374f, -0.031f);
+
+
         //makes camera follow mouse
         xMouse = Input.GetAxis("Mouse X") * speed * Time.deltaTime;
         yMouse = Input.GetAxis("Mouse Y") * speed * Time.deltaTime;
@@ -57,41 +78,33 @@ public class cameraRotation : MonoBehaviour
             //gunXPosition = 0.221f;
         }
        
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0)/* && canShoot <= shootTimer*/)
         {
+            //recoilCheck = true;
             RecoilCamera();
-            
+            //shootTimer = 0f;
         }
+
+        //if(recoilCheck)
+        //{
+        //    transform.localRotation = Quaternion.Slerp(rotation1, rotation2, recoilSpeed * Time.deltaTime);
+        //}
     }
     private void RecoilCamera()
     {
-        
-        recoil = Random.Range(-5, -1);
-        rotation1 = Quaternion.Euler(xRotation, 0f, 0f);
-        rotation2 = Quaternion.Euler(xRotation + recoil, 0f, 0f);
-        transform.localRotation = Quaternion.Slerp(rotation1, rotation2, recoilSpeed * Time.deltaTime);
-        //Debug.Log(rotation1 + " " + rotation2 + " " + recoilSpeed);
-        //xRotation = Mathf.MoveTowards(xRotation, xRotation + recoil, recoilSpeed * Time.deltaTime);
+
+        //recoil = Random.Range(-1f, -5f);
+        //rotation1 = Quaternion.Euler(transform.localRotation.x, 0f, 0f);
+        //rotation2 = Quaternion.Euler(transform.localRotation.x + recoil, 0f, 0f);
+
+
+        ////targetRotation += new Vector3(recoilX, Random.Range(-recoilY, recoilY), Random.Range(-recoilZ, recoilZ));
+
     }
     void ZoomCamera(float target, float LTarget)
     {
         float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
         cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle / zoomDuration * Time.deltaTime);
         gunXPosition = Mathf.MoveTowards(gunXPosition, LTarget, angle / zoomDuration * Time.deltaTime);
-
-        //float angle = Mathf.Abs((defaultFov / zoomMultiplier) - defaultFov);
-
-        //// Smoothly interpolate camera field of view
-        //cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle / zoomDuration * Time.deltaTime);
-
-        //// Calculate the percentage of completion for the interpolation
-        //float t = 1.0f - (cam.fieldOfView - defaultFov) / (target - defaultFov);
-
-        //// Smoothly interpolate a separate variable for gun position based on the percentage of completion
-        //float smoothGunXPosition = Mathf.Lerp(gunXPosition, LTarget, t);
-
-        //gun.transform.localPosition = new Vector3(smoothGunXPosition, -0.374f, -0.031f);
-
-
     }
 }
