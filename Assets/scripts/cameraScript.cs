@@ -4,7 +4,7 @@ using UnityEngine;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 
-public class camera : MonoBehaviour
+public class cameraScript : MonoBehaviour
 {
     //var
 
@@ -42,7 +42,8 @@ public class camera : MonoBehaviour
 
     public CharacterController characterController;
 
-
+    //player health
+    public static float playerHealth = 100f;
 
     // Start is called before the first frame update
     void Start()

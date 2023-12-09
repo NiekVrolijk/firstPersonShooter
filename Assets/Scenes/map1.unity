@@ -128,6 +128,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8996633058236469121, guid: 12e22843e09814f4e899415181710685, type: 3}
   m_PrefabInstance: {fileID: 7716303623417912017}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &13656295 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3826277977271890637, guid: 12e22843e09814f4e899415181710685, type: 3}
+  m_PrefabInstance: {fileID: 7716303623417912017}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &117134079 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7629638406377451922, guid: 12e22843e09814f4e899415181710685, type: 3}
+  m_PrefabInstance: {fileID: 7716303623417912017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &245035619
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,14 +1008,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2090063475}
+  yMouse: 0
   speed: 700
   cam: {fileID: 963194227}
   gun: {fileID: 350332344}
-  gunXPosition: 0
-  recoil: 0
-  recoilSpeed: 0.1
-  rotation1: {x: 0, y: 0, z: 0, w: 0}
-  rotation2: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1134279005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,10 +2070,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: emeny
       objectReference: {fileID: 0}
+    - target: {fileID: 2533342706756589475, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: closeEnough
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095307851054995340, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 13656295}
     - target: {fileID: 6095307851054995340, guid: 12e22843e09814f4e899415181710685, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2090063475}
+    - target: {fileID: 6095307851054995340, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: fireSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095307851054995340, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: attackRange
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6095307851054995340, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 117134079}
     - target: {fileID: 8996633058236469121, guid: 12e22843e09814f4e899415181710685, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
