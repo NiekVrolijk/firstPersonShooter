@@ -10,10 +10,10 @@ public class cameraScript : MonoBehaviour
 
     // x and z speed
     [SerializeField] private float currentSpeed;
-    [SerializeField] public float walkingSpeed = 3f;
-    [SerializeField] public float runningSpeed = 5f;
-    [SerializeField] public float AirWSpeed = 2.1f;
-    [SerializeField] public float AirRSpeed = 3.5f;
+    [SerializeField] private float walkingSpeed = 3f;
+    [SerializeField] private float runningSpeed = 5f;
+    [SerializeField] private float AirWSpeed = 2.1f;
+    [SerializeField] private float AirRSpeed = 3.5f;
     
     //jump (y speed)
     public float gravity = -30f;
@@ -44,6 +44,8 @@ public class cameraScript : MonoBehaviour
 
     //player health
     public static float playerHealth = 100f;
+    private GameObject HP;
+    private TMPro.TMP_Text currentHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +53,11 @@ public class cameraScript : MonoBehaviour
         //makes default speed walking speed and baselinegravity = to gravity
         currentSpeed = walkingSpeed;
         baseLineGravity = gravity;
-        characterController = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>(); 
+        
+        //health
+        HP = GameObject.Find("health");
+        currentHealth = HP.GetComponent<TMPro.TMP_Text>();
     }
 
     // Update is called once per frame
@@ -72,6 +78,11 @@ public class cameraScript : MonoBehaviour
         {
             isGrounded = false;
         }
+    }
+
+    private void LateUpdate()
+    {
+        currentHealth.text = playerHealth.ToString() + "/100";
     }
 
     private void Move()
