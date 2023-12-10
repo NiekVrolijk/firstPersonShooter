@@ -2207,9 +2207,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: emeny
       objectReference: {fileID: 0}
+    - target: {fileID: 629976788805625763, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2533342706756589475, guid: 12e22843e09814f4e899415181710685, type: 3}
       propertyPath: closeEnough
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826277977271890637, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6095307851054995340, guid: 12e22843e09814f4e899415181710685, type: 3}
       propertyPath: bullet
@@ -2233,6 +2241,10 @@ PrefabInstance:
       objectReference: {fileID: 117134079}
     - target: {fileID: 6183137142468953822, guid: 12e22843e09814f4e899415181710685, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
+      value: 192
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629638406377451922, guid: 12e22843e09814f4e899415181710685, type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8996633058236469121, guid: 12e22843e09814f4e899415181710685, type: 3}
