@@ -1853,7 +1853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyOG: {fileID: 629976788805625763, guid: 12e22843e09814f4e899415181710685, type: 3}
-  enemyMax: 10
+  enemyMax: 50
 --- !u!1 &2016900607
 GameObject:
   m_ObjectHideFlags: 0

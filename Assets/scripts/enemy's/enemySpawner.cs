@@ -6,7 +6,7 @@ public class enemySpawner : MonoBehaviour
 {
 
     public GameObject enemyOG;
-    public int enemyMax = 10;
+    public int enemyMax = 50;
     // Start is called before the first frame update
     void Start()
     {
