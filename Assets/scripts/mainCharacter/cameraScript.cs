@@ -85,12 +85,13 @@ public class cameraScript : MonoBehaviour
     {
         //movement 
 
+        //gravity
         if (characterController.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
 
-
+        //move inputs
         float MoveZ = Input.GetAxis("Vertical");
         float MoveX = Input.GetAxis("Horizontal");
 
@@ -116,7 +117,7 @@ public class cameraScript : MonoBehaviour
             AirRun();
         }
 
-        if (Input.GetKey(KeyCode.Space) && doubleJump > 0 && canJump <= jumpTimer && !characterController.isGrounded) // jump
+        if (Input.GetKey(KeyCode.Space) && doubleJump > 0 && canJump <= jumpTimer && !characterController.isGrounded) //jump in air
         {
             jump();
             //double jump
@@ -126,22 +127,27 @@ public class cameraScript : MonoBehaviour
 
         if (characterController.isGrounded)
         {
-            if (Input.GetKey(KeyCode.Space) && canJump <= jumpTimer) // jump
+            if (Input.GetKey(KeyCode.Space) && canJump <= jumpTimer) //normal jump
             {
                 jump();
                 jumpTimer = 0f;
             }
 
+            //if not doing anything don't do anything
             if (moveDirection != Vector3.zero)// idle
             {
                 idle();
             }
         }
+        //movement speed based on current speed
         characterController.Move(moveDirection * currentSpeed * Time.deltaTime);
 
-        velocity.y += gravity * Time.deltaTime; // applies gravity
+        //applies gravity
+        velocity.y += gravity * Time.deltaTime;
         characterController.Move(velocity * Time.deltaTime);
     }
+
+    //move void's
     private void Walk()
     {
         moveDirection *= walkingSpeed;
@@ -169,6 +175,8 @@ public class cameraScript : MonoBehaviour
 
 
     }
+
+    //if you hit a wall mid air reset double jump
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         

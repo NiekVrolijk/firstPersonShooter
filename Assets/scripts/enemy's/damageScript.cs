@@ -15,10 +15,13 @@ public class damageScript : MonoBehaviour
     {
         
     }
+
     private void OnCollisionEnter(Collision collision)
     {
+        //if bullet hit player
         if (collision.gameObject.CompareTag("player1"))
         {
+            //take away 3 HP form player and destroy bullet
             cameraScript.playerHealth -= 3;
             Destroy(gameObject);
         }
