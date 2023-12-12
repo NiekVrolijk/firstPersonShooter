@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.SceneManagement;
 
 public class cameraScript : MonoBehaviour
 {
     //var
 
-    // x and z speed
+    // x and z speed for running and walking (and for doing so while in the air)
     [SerializeField] private float currentSpeed;
     [SerializeField] private float walkingSpeed = 3f;
     [SerializeField] private float runningSpeed = 5f;
@@ -26,20 +27,14 @@ public class cameraScript : MonoBehaviour
     private float jumpTimer;
     private float canJump = 0.4f;
 
-    //wall jump
-    public bool isGrounded;
-
-
+    //vertor 3's for movement
     private Vector3 moveDirection;
     private Vector3 moveDirection2;
     private Vector3 moveDirectionX;
     private Vector3 moveDirectionZ;
     private Vector3 velocity;
 
-    private float moveX;
-    private float moveZ;
-    private Vector3 move;
-
+    //assigns character controller
     public CharacterController characterController;
 
     //player health
@@ -63,6 +58,13 @@ public class cameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //makes player health not shoot into -"_" before death and sends player to the death scene/screan "the death screne"
+        playerHealth = Mathf.Clamp(playerHealth, 0, 100);
+        if (playerHealth <= 0)
+        {
+            SceneManager.LoadScene("deathScrene");
+        }
+
         Move();
         //reset doublejump
         if (characterController.isGrounded)
@@ -71,17 +73,11 @@ public class cameraScript : MonoBehaviour
         }
         //run double jump timer
         jumpTimer += Time.deltaTime;
-        if (characterController.isGrounded)
-        {
-            isGrounded = true;
-        } else if (!characterController.isGrounded)
-        {
-            isGrounded = false;
-        }
     }
 
     private void LateUpdate()
     {
+        //update health on screan
         currentHealth.text = playerHealth.ToString() + "/100";
     }
 
