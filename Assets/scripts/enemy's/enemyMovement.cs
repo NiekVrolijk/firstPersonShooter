@@ -9,7 +9,7 @@ public class enemyMovement : MonoBehaviour
     //var
     //assign nav mesh agent and chooses the squere in which the enemy is allowed to try and move to
     public NavMeshAgent badEnemy;
-    public float squereOfMovement = 20f;
+    public float squereOfMovement = 95f;
 
     //uses sqeure of movement to disside the max and min values of the squere on the X and Z axis
     private float xMin;
@@ -21,6 +21,11 @@ public class enemyMovement : MonoBehaviour
     private float xPosition;
     private float zPosition;
     private float yPosition;
+
+    //set current position
+    private float currentXPosition;
+    private float currentZPosition;
+    private float currentYPosition;
 
     //distance form choosen point when it can choose another random point to move to.
     public float closeEnough = 2;
@@ -36,6 +41,11 @@ public class enemyMovement : MonoBehaviour
         
         //starts moving randomly when spawned in
         RandomMove();
+
+        //random spawn location
+        currentXPosition = Random.Range(xMin, xMax);
+        currentZPosition = Random.Range(zMin, zMax);
+        transform.position = new Vector3(currentXPosition, currentYPosition, currentZPosition);
     }
 
     // Update is called once per frame

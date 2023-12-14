@@ -9,8 +9,8 @@ public class enemySpawner : MonoBehaviour
     public GameObject enemyOG;
     public int enemyMax = 50;
 
-    //private float timer = 0f;
-    //private float canspawn = 10f;
+    private float timer = 0f;
+    private float canspawn = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +25,11 @@ public class enemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //timer *= Time.deltaTime;
-        //if (timer >= canspawn) 
-        //{
-        //    GameObject enemy = Instantiate(enemyOG);
-        //    timer = 0f;
-        //}
+        timer += Time.deltaTime;
+        if (timer >= canspawn)
+        {
+            GameObject enemy = Instantiate(enemyOG);
+            timer = 0f;
+        }
     }
 }
