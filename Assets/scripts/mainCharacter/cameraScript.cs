@@ -42,6 +42,9 @@ public class cameraScript : MonoBehaviour
     private GameObject HP;
     private TMPro.TMP_Text currentHealth;
 
+    //keeps track of if the player is grounded (if needed in another script)
+    public bool isGrounedObjectives;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +61,13 @@ public class cameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (characterController.isGrounded) 
+        {
+            isGrounedObjectives = true;
+        } else
+        {
+            isGrounedObjectives = false;
+        }
         //makes player health not shoot into -"_" before death and sends player to the death scene/screan "the death screne"
         playerHealth = Mathf.Clamp(playerHealth, 0, 100);
         if (playerHealth <= 0)

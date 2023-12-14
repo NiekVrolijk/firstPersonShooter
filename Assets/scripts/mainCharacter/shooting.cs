@@ -50,9 +50,9 @@ public class shooting : MonoBehaviour
             //makes muzzle flash appear
             muzzleFlashX = 0.1f; muzzleFlashY = 0.05f; muzzleFlashZ = 0.1f;
             muzzleFlash.transform.localScale = new Vector3(muzzleFlashX, muzzleFlashY, muzzleFlashZ);
-            //shoots out raycast
+            //binds ray to mouse position
             ray = cam.ScreenPointToRay(Input.mousePosition);
-            //if raycast hit's something and that something is an enemy, then it dies
+            //shoots raycast; if raycast hit's something and that something is an enemy, then it dies
             if(Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.tag.Equals("NPC"))

@@ -15,45 +15,25 @@ public class objectives : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("player1").transform;
 
-        xPosition = transform.localPosition.x;
-        yPosition = transform.localPosition.y;
-        zPosition = transform.localPosition.z;
+        xPosition = transform.position.x;
+        yPosition = transform.position.y;
+        zPosition = transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
-    { //ahahhh
-        if (player.position.y > transform.position.y &&
-             player.position.x < transform.position.x + 10f &&
-             player.position.z < transform.position.x + 10f)
+    { //aaaahhhhhhh
+        if ( player.position.y > transform.position.y //&&
+             //player.position.x <= transform.position.x + 10f &&
+             //player.position.z <= transform.position.x + 10f && 
+             //player.position.x >= transform.position.x - 10f &&
+             //player.position.z >= transform.position.x - 10f
+             )
         {
             yPosition = Mathf.Clamp(yPosition, 0f, 20f);
             yPosition = yPosition - goingDownSpeed * Time.deltaTime;
             transform.localPosition = new Vector3(xPosition, yPosition, zPosition);
         }
-        if (player.position.y > transform.position.y &&
-             player.position.x > transform.position.x + -10f &&
-             player.position.z < transform.position.x + 10f)
-        {
-            yPosition = Mathf.Clamp(yPosition, 0f, 20f);
-            yPosition = yPosition - goingDownSpeed * Time.deltaTime;
-            transform.localPosition = new Vector3(xPosition, yPosition, zPosition);
-        }
-        if (player.position.y > transform.position.y &&
-             player.position.x > transform.position.x + -10f &&
-             player.position.z > transform.position.x + -10f)
-        {
-            yPosition = Mathf.Clamp(yPosition, 0f, 20f);
-            yPosition = yPosition - goingDownSpeed * Time.deltaTime;
-            transform.localPosition = new Vector3(xPosition, yPosition, zPosition);
-        }
-        if (player.position.y > transform.position.y &&
-             player.position.x < transform.position.x + 10f &&
-             player.position.z > transform.position.x + -10f)
-        {
-            yPosition = Mathf.Clamp(yPosition, 0f, 20f);
-            yPosition = yPosition - goingDownSpeed * Time.deltaTime;
-            transform.localPosition = new Vector3(xPosition, yPosition, zPosition);
-        }
+        
     }
 }
