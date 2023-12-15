@@ -50,6 +50,11 @@ public class cameraScript : MonoBehaviour
     //winnin
     public static float objectivesCaptured = 0;
 
+    ////enemy hits slow
+    //private float slowedCount = 1f;
+    //private float timer;
+    //private float timeSlowed = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +99,9 @@ public class cameraScript : MonoBehaviour
         }
         //run double jump timer
         jumpTimer += Time.deltaTime;
+
+        //slowing effect
+        //timer += Time.deltaTime;
     }
 
     private void LateUpdate()
@@ -171,20 +179,20 @@ public class cameraScript : MonoBehaviour
     //move void's
     private void Walk()
     {
-        moveDirection *= walkingSpeed;
+        moveDirection *= walkingSpeed/* * slowedCount*/;
     }
     private void Run()
     {
-        moveDirection *= runningSpeed;
+        moveDirection *= runningSpeed/* * slowedCount*/;
     }
 
     private void AirWalk()
     {
-        moveDirection *= AirWSpeed;
+        moveDirection *= AirWSpeed/* * slowedCount*/;
     }
     private void AirRun()
     {
-        moveDirection *= AirRSpeed;
+        moveDirection *= AirRSpeed/* * slowedCount*/;
     }
 
     public void jump()
