@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e55c961581b47614285a8a4b15b020ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 35
+  attackRange: 50
   defaultMaterial: {fileID: 2100000, guid: 694636c6270f72143ba439bcc4a49884, type: 2}
   attackMaterial: {fileID: 2100000, guid: b7cf8daa161e6284dbd1367452aa765e, type: 2}
   bullet: {fileID: 3826277977271890637}

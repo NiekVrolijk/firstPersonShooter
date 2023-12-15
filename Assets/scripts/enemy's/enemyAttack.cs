@@ -7,7 +7,7 @@ public class enemyAttack : MonoBehaviour
     //locate player and form what distance should the enemy follow player (and connecting to enemyMovement script)
     private enemyMovement EnemyMovement;
     private Transform player;
-    public float attackRange = 35;
+    public float attackRange = 50;
 
     //enemy change collor when seeing player (within the 35)
     public Material defaultMaterial;

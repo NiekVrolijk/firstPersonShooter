@@ -13,9 +13,11 @@ public class cameraScript : MonoBehaviour
     [SerializeField] private float currentSpeed;
     [SerializeField] public static float walkingSpeed = 3f;
     [SerializeField] public static float runningSpeed = 5f;
-    [SerializeField] public static float AirWSpeed = 2.1f;
-    [SerializeField] public static float AirRSpeed = 3.5f;
-    
+    //[SerializeField] public static float AirWSpeed = 2.1f;
+    //[SerializeField] public static float AirRSpeed = 3.5f;
+    [SerializeField] public static float AirWSpeed = 3f;
+    [SerializeField] public static float AirRSpeed = 5f;
+
     //jump (y speed)
     public float gravity = -30f;
     private float baseLineGravity;

@@ -13,7 +13,7 @@ public class objectives : MonoBehaviour
     private float goingUpSpeed = 0.8f;
 
     private float timer;
-    private float goUpTime = 25f;
+    private float goUpTime = 30f;
 
     private bool objectionCapped = false;
     private float lowEnough = 1f;
