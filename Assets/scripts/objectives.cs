@@ -9,11 +9,11 @@ public class objectives : MonoBehaviour
     private float xPosition;
     private float yPosition;
     private float zPosition;
-    private float goingDownSpeed = 2f;
-    private float goingUpSpeed = 1f;
+    private float goingDownSpeed = 2.5f;
+    private float goingUpSpeed = 0.5f;
 
     private float timer;
-    private float goUpTime;
+    private float goUpTime = 25f;
     // Start is called before the first frame update
     void Start()
     {
