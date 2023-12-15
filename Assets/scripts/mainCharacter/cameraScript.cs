@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class cameraScript : MonoBehaviour
 {
+    //i was working on making the player slowed if they got hit but didn't finish it. might add it later for fun tho
+
     //var
 
     // x and z speed for running and walking (and for doing so while in the air)
@@ -71,12 +73,14 @@ public class cameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if all objectives capped than
         if (objectivesCaptured == 3) 
         {
+            //load win screan
             SceneManager.LoadScene("winScreen");
         }
-        Debug.Log(objectivesCaptured);
 
+        //looks if player is grounded for if another script needs that
         if (characterController.isGrounded) 
         {
             isGrounedObjectives = true;

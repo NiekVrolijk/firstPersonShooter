@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "you die, is ok. you can try again and again if you need to. \n\npress
+  m_text: "you died, it's ok. you can try again and again if you need to. \n\npress
     enter to try again :)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
