@@ -11,10 +11,10 @@ public class cameraScript : MonoBehaviour
 
     // x and z speed for running and walking (and for doing so while in the air)
     [SerializeField] private float currentSpeed;
-    [SerializeField] private float walkingSpeed = 3f;
-    [SerializeField] private float runningSpeed = 5f;
-    [SerializeField] private float AirWSpeed = 2.1f;
-    [SerializeField] private float AirRSpeed = 3.5f;
+    [SerializeField] public static float walkingSpeed = 3f;
+    [SerializeField] public static float runningSpeed = 5f;
+    [SerializeField] public static float AirWSpeed = 2.1f;
+    [SerializeField] public static float AirRSpeed = 3.5f;
     
     //jump (y speed)
     public float gravity = -30f;
@@ -45,6 +45,9 @@ public class cameraScript : MonoBehaviour
     //keeps track of if the player is grounded (if needed in another script)
     public bool isGrounedObjectives;
 
+    //winnin
+    public static float objectivesCaptured = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +64,12 @@ public class cameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (objectivesCaptured == 3) 
+        {
+            SceneManager.LoadScene("winScreen");
+        }
+        Debug.Log(objectivesCaptured);
+
         if (characterController.isGrounded) 
         {
             isGrounedObjectives = true;

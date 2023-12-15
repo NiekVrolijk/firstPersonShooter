@@ -3792,6 +3792,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
+  walkingSpeed: 3
+  runningSpeed: 5
+  AirWSpeed: 2
+  AirRSpeed: 3
   gravity: -30
   jumpHeight: 3
   characterController: {fileID: 2090063476}

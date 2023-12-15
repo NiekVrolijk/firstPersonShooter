@@ -9,11 +9,14 @@ public class objectives : MonoBehaviour
     private float xPosition;
     private float yPosition;
     private float zPosition;
-    private float goingDownSpeed = 2.5f;
-    private float goingUpSpeed = 0.5f;
+    private float goingDownSpeed = 2.4f;
+    private float goingUpSpeed = 0.8f;
 
     private float timer;
     private float goUpTime = 25f;
+
+    private bool objectionCapped = false;
+    private float lowEnough = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,8 @@ public class objectives : MonoBehaviour
         xPosition = transform.position.x;
         yPosition = transform.position.y;
         zPosition = transform.position.z;
+
+        objectionCapped = false;
     }
 
     // Update is called once per frame
@@ -46,6 +51,22 @@ public class objectives : MonoBehaviour
             yPosition = yPosition + goingUpSpeed * Time.deltaTime;
             transform.localPosition = new Vector3(xPosition, yPosition, zPosition);
         }
-        
+        if (objectionCapped == false)
+        {
+            if (transform.position.y <= lowEnough)
+            {
+                cameraScript.objectivesCaptured += 1;
+                objectionCapped = true;
+                Debug.Log("ahhhh");
+            }
+        }
+        if (objectionCapped == true)
+        {
+            if (transform.position.y >= lowEnough)
+            {
+                cameraScript.objectivesCaptured -= 1;
+                objectionCapped = false;
+            }
+        }
     }
 }
