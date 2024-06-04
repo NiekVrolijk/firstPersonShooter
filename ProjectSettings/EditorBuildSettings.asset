@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/menu.unity
+    path: Assets/Scenes/FPS/menu.unity
     guid: d2ab741605dfbc8418b0e0df580e9c9d
   - enabled: 1
-    path: Assets/Scenes/map1.unity
+    path: Assets/Scenes/FPS/map1.unity
     guid: 097df891c677f984c887ee27e6889dd9
   - enabled: 1
-    path: Assets/Scenes/deathScrene.unity
+    path: Assets/Scenes/FPS/deathScrene.unity
     guid: 9b8bb40ca0264f344a98182f938201fd
   - enabled: 1
-    path: Assets/Scenes/winScreen.unity
+    path: Assets/Scenes/FPS/winScreen.unity
     guid: b0c06499dab83b5478c572c539cc81b8
   m_configObjects: {}
